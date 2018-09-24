@@ -10,13 +10,13 @@
 			<div class="input-group h2">
 				 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Usu&aacute;rios" ng-model="argumento">
 	            <span class="input-group-btn">
-	                <button class="btn btn-primary" ng-click="lista(argumento)">Busca</button>
+	                <button pButton icon="pi pi-search" (click)="pesquisa()"></button>
 	            </span>
 			</div>
 		</div>
 		<div class="col-md-3">
-	    		<a routerLink="/usuario-form" class="btn btn-primary">Novo Usu&aacute;rio</a>
-	  	</div>
+	    		<a href="/usuario-form" class="btn btn-primary">Novo Usu&aacute;rio</a>
+		  </div>
 	</div>
 
 	<div id="list" class="row">
@@ -33,20 +33,15 @@
 				</thead>
 				<tbody>
 					<tr *ngFor ="let usuario of usuarios">
-						<td></td>
+						<td>{{usuario.id}}</td>
 						<td>{{usuario.nome}}</td>
 						<td>{{usuario.setor}}</td>
 						<td>{{usuario.ramal}}</td>
 					    <td class="actions"> 
-						<!-- <a class="btn btn-success btn-xs" href="view.html">
-								<span class="glyphicon glyphicon-zoom-in"></span>
-							</a>  --> 
-							<a class="btn btn-warning btn-xs" href="/usuarios/update">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</a> 
+							<button pButton icon="pi pi-exclamation-triangle" label="Edita" style="margin-right: 3px"></button>
 							
-							<button class="btn btn-danger btn-xs btn_exclui" ng-click="exibeTelaExclusao(usuario.id)">
-								<span class="glyphicon glyphicon-trash"></span>
+							<button pButton icon="pi  pi-times" label="Exclui" (click)="excluir(usuario.id)">
+							<!--	<span class="glyphicon glyphicon-trash"></span> -->
 							</button>
 						</td>	
 					</tr>
@@ -55,22 +50,8 @@
 		</div>
 	</div>
 
+	<!-- Modal -->
+	<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>	
 	
-		<!-- Modal -->
-	<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
-	    <div class="modal-dialog" role="document">
-	        <div class="modal-content">
-	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-	                <h4 class="modal-title" id="modalLabel">Excluir usu&aacute;rio</h4>
-	            </div>
-	            <div class="modal-body">Deseja realmente excluir este item? </div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-primary" ng-click="deleta()" data-dismiss="modal">Sim</button>
-	                <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
-	            </div>
-	        </div>
-	    </div>
-	</div>
 	
 </div>

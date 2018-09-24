@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-usuario-list',
@@ -10,14 +12,23 @@ import { UsuarioService } from '../usuario.service';
 export class UsuarioListComponent implements OnInit {
 
   usuarios : Usuario [];
-  constructor(private usuarioService :UsuarioService) { }
+  constructor(private usuarioService :UsuarioService, private confirmationService : ConfirmationService) { }
 
   ngOnInit() {
+  } 
+
+  pesquisa() {
+    console.log('pesquisando');
     this.usuarios = this.usuarioService.listaUsuarios();
   }
 
-  pesquisa() {
-
+  excluir(id :number) {
+    this.confirmationService.confirm({
+      message : 'Deseja realmente excluir este usuário?',
+      accept : ()=> {
+          this.usuarioService.exclui(id);
+      }
+    });
   }
 
 }
