@@ -7,13 +7,17 @@ import { Usuario } from './usuario';
 export class UsuarioService implements OnInit {
  
   private lista : Usuario[] = [];
-  constructor() { }
 
-  ngOnInit(): void {
-    
+  constructor() { 
+    console.log('ngOninit ');
+    this.lista = this.listaTodosUsuarios();
   }
 
-  listaUsuarios () {
+  ngOnInit(): void {
+   
+  }
+
+  listaTodosUsuarios () {
     let user = new Usuario();
     for (let i=0; i < 5; i++) {
       user = new Usuario();
@@ -32,6 +36,11 @@ export class UsuarioService implements OnInit {
       }
     })
     }
+
+    pesquisaPorNome(nome : string)  : Usuario []{
+      let listaTemp = this.lista.filter( (usuario) => usuario.nome.includes(nome) );
+      return listaTemp;
+        
+    }
   }
 
-}

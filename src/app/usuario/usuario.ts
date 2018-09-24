@@ -5,6 +5,7 @@ export class Usuario {
     ramal :number;
     login:string;
     senha: string;
+    ativo: boolean;
     
     constructor(){}
 }

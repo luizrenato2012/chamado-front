@@ -1,22 +1,24 @@
-
 <div id="main" class="container-fluid">
 
 	<div id="top" class="row">
 		<div class="col-md-3">
 			<h2>Usu&aacute;rios</h2>
 		</div>
-		
+
 		<div class="col-md-6">
 			<div class="input-group h2">
-				 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Usu&aacute;rios" ng-model="argumento">
-	            <span class="input-group-btn">
-	                <button pButton icon="pi pi-search" (click)="pesquisa()"></button>
-	            </span>
+			<!--	<form>  -->
+					<input name="data[search]" class="form-control" id="search" type="text" 
+						placeholder="Pesquisar Usu&aacute;rios" [(ngModel)]="argumento">
+					<!-- <span class="input-group-btn">  -->
+						<button pButton icon="pi pi-search" (click)="pesquisa()"></button>
+					<!-- </span> -->
+		<!--		</form> -->
 			</div>
 		</div>
 		<div class="col-md-3">
-	    		<a href="/usuario-form" class="btn btn-primary">Novo Usu&aacute;rio</a>
-		  </div>
+			<a href="/usuario-form" class="btn btn-primary">Novo Usu&aacute;rio</a>
+		</div>
 	</div>
 
 	<div id="list" class="row">
@@ -28,22 +30,22 @@
 						<th>Nome</th>
 						<th>Setor</th>
 						<th>Ramal</th>
-					 	<th class="actions">A&ccedil;&otilde;es</th> 
+						<th class="actions">A&ccedil;&otilde;es</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor ="let usuario of usuarios">
+					<tr *ngFor="let usuario of usuarios">
 						<td>{{usuario.id}}</td>
 						<td>{{usuario.nome}}</td>
 						<td>{{usuario.setor}}</td>
 						<td>{{usuario.ramal}}</td>
-					    <td class="actions"> 
+						<td class="actions">
 							<button pButton icon="pi pi-exclamation-triangle" label="Edita" style="margin-right: 3px"></button>
-							
+
 							<button pButton icon="pi  pi-times" label="Exclui" (click)="excluir(usuario.id)">
-							<!--	<span class="glyphicon glyphicon-trash"></span> -->
+								<!--	<span class="glyphicon glyphicon-trash"></span> -->
 							</button>
-						</td>	
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -51,7 +53,7 @@
 	</div>
 
 	<!-- Modal -->
-	<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>	
-	
-	
+	<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
+
+
 </div>

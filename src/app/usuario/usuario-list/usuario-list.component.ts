@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 
 @Component({
@@ -12,14 +11,17 @@ import { ConfirmationService } from 'primeng/api';
 export class UsuarioListComponent implements OnInit {
 
   usuarios : Usuario [];
+  argumento : string;
+
   constructor(private usuarioService :UsuarioService, private confirmationService : ConfirmationService) { }
 
   ngOnInit() {
   } 
 
   pesquisa() {
-    console.log('pesquisando');
-    this.usuarios = this.usuarioService.listaUsuarios();
+    console.log('pesquisando ' + this.argumento);
+    this.usuarios = ( this.argumento=='' || this.argumento==undefined) ?  this.usuarioService.listaTodosUsuarios() :
+      this.usuarioService.pesquisaPorNome(this.argumento);
   }
 
   excluir(id :number) {
