@@ -8,4 +8,5 @@ export class Usuario {
     ativo: boolean;
     
     constructor(){}
+    
 }

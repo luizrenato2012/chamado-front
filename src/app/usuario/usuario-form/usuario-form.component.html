@@ -2,22 +2,41 @@
     <h3 class="page-header">Usuario</h3>
 
     <form #frm_usuario="ngForm" novalidate>
-      <div class="form-group col-lg-6" style="border-width: 2px">
+      <div class="row">
+      <div class="form-group col-md-6" >
         <label for="nome" class="form-label">Nome</label>
-        <input type="text"  [(ngModel)]="usuario.nome" #nome="ngModel" id="nome" name="nome" class="form-control" placeholder="Digite o nome" ng-required="true"/>
+        <input type="text"  [(ngModel)]="usuario.nome" #nome="ngModel"  name="nome" class="form-control" placeholder="Digite o nome" ng-required="true"/>
         <span class="error_message" *ngIf="nome.$dirty &&  nome.$invalid">Nome obrigat&oacute;rio</span>   
       </div>
-  
-      <div class="form-group col-lg-6">
-        <label for="telefone" class="form-label">Setor</label> 
-        <input type="text" [(ngModel)]="usuario.setor" #setor="ngModel" id="setor" class="form-control" name="setor" placeholder="Digite o setor" />
-      </div>
-  
-      <div class="form-group col-lg-8">
-        <label for="ramal" class="form-label">Ramal</label> 
-        <input type="text" [(ngModel)]="usuario.ramal" #ramail="ngModel" id="ramal" class="form-control" placeholder="Digite o ramal" ng-blur="limpaMensagem()"/>
+
+      <div class="form-group col-md-6">
+          <label for="ativo" class="form-label">ativo</label> 
+          <input type="checkbox" [(ngModel)]="usuario.ativo" #ativo="ngModel"  name="ativo" [value]="true" class="form-control" />
+        </div>
       </div>
       
+      <div class="row">
+      <div class="form-group col-md-6">
+        <label for="telefone" class="form-label">Setor</label> 
+        <input type="text" [(ngModel)]="usuario.setor" #setor="ngModel"  name="setor" class="form-control"  placeholder="Digite o setor" />
+      </div>
+      
+      <div class="form-group col-md-6">
+        <label for="ramal" class="form-label">Ramal</label> 
+        <input type="text" [(ngModel)]="usuario.ramal" #ramal="ngModel" name="ramal" class="form-control" placeholder="Digite o ramal" ng-blur="limpaMensagem()"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="login" class="form-label">Login</label> 
+        <input type="text" name="login" [(ngModel)]="usuario.login" #login="ngModel" class="form-control" placeholder="Digite o login" ng-blur="limpaMensagem()"/>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="senha" class="form-label">Senha</label> 
+        <input type="text" name="senha" [(ngModel)]="usuario.senha" #senha="ngModel" id="senha" class="form-control" placeholder="Digite a senha" ng-blur="limpaMensagem()"/>
+      </div>
+    </div>
     <!-- <div class="form-group col-md-12"  ng-show="mensagem!='' && !frm_usuario.$dirty">
         <div ng-class="classeMensagem">{{mensagem}}</div>
       </div>  -->

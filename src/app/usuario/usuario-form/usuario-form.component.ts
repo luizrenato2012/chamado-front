@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../usuario';
 
 @Component({
   selector: 'app-usuario-form',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioFormComponent implements OnInit {
 
+   usuario= new Usuario();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  limparMensagem() {
+
   }
 
 }
