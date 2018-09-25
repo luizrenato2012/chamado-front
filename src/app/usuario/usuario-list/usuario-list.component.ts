@@ -33,4 +33,9 @@ export class UsuarioListComponent implements OnInit {
     });
   }
 
+  alterar(usuario : Usuario) {
+    console.log("editando " + usuario );
+    this.usuarioService.setUsuarioEdicao(usuario);
+  }
+
 }

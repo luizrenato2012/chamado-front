@@ -40,10 +40,9 @@
 						<td>{{usuario.setor}}</td>
 						<td>{{usuario.ramal}}</td>
 						<td class="actions">
-							<button pButton icon="pi pi-exclamation-triangle" label="Edita" style="margin-right: 3px"></button>
-
+							<a pButton href="/usuario-form" icon="pi pi-exclamation-triangle" label="Edita" style="margin-right: 3px" 
+								(click)="alterar(usuario)"></a>
 							<button pButton icon="pi  pi-times" label="Exclui" (click)="excluir(usuario.id)">
-								<!--	<span class="glyphicon glyphicon-trash"></span> -->
 							</button>
 						</td>
 					</tr>
