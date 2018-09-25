@@ -18,4 +18,8 @@ export class UsuarioFormComponent implements OnInit {
 
   }
 
+  grava() {
+    console.log(this.usuario);
+  }
+
 }
