@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<a href="/usuario-form" class="btn btn-primary">Novo Usu&aacute;rio</a>
+			<a routerLink="/usuario-form" class="btn btn-primary">Novo Usu&aacute;rio</a>
 		</div>
 	</div>
 
@@ -40,7 +40,7 @@
 						<td>{{usuario.setor}}</td>
 						<td>{{usuario.ramal}}</td>
 						<td class="actions">
-							<a pButton href="/usuario-form" icon="pi pi-exclamation-triangle" label="Edita" style="margin-right: 3px" 
+							<a pButton routerLink="/usuario-form"  icon="pi pi-exclamation-triangle" label="Edita" style="margin-right: 3px" 
 								(click)="alterar(usuario)"></a>
 							<button pButton icon="pi  pi-times" label="Exclui" (click)="excluir(usuario.id)">
 							</button>

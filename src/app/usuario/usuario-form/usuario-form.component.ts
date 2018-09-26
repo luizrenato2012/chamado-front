@@ -36,7 +36,7 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   grava(usuario: Usuario, form: NgForm) {
-    console.log(usuario);
+    //console.log(usuario);
     this.service.inclui(usuario);
     this.usuario = new Usuario();
     form.form.markAsPristine();

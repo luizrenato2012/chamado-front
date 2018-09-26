@@ -11,6 +11,7 @@ import { MessageModule} from 'primeng/message'
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { UsuarioListComponent } from './usuario-list/usuario-list.component';
 import { UsuarioService } from './usuario.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UsuarioService } from './usuario.service';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MessageModule
+    MessageModule,
+    RouterModule
   ],
   declarations: [
     UsuarioFormComponent, 
