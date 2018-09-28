@@ -1,6 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Usuario } from './usuario';
-import { stringify } from '@angular/core/src/util';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const API="http://localhost:3000/";
 
 @Injectable({
   providedIn: 'root'
@@ -10,33 +13,20 @@ export class UsuarioService implements OnInit {
   private lista: Usuario[] = [];
   private usuarioEdicao :Usuario;
 
-  constructor() {
+  constructor(private httpClient : HttpClient) {
     console.log('criando Usuario service');
-    this.lista = this.listaTodosUsuarios();
+    // this.lista = this.listaTodosUsuarios();
   }
 
   ngOnInit(): void {
 
   }
 
-  listaTodosUsuarios() {
-    if (this.lista.length == 0) {
-      this.initLista();
-
-    }
-    return this.lista;
+  listaTodosUsuarios(): Observable<Usuario[]> {
+    return this.httpClient
+        .get<Usuario[]>(API+"usuarios");
   }
 
-  initLista() {
-    let user = new Usuario();
-    for (let i = 0; i < 5; i++) {
-      user = new Usuario();
-      user.id = i;
-      user.nome = 'Nome ' + i;
-      user.ramal = i * 10;
-      this.lista.push(user);
-    }
-  }
 
   exclui(id: number) {
     this.lista.forEach((usuario) => {
@@ -46,10 +36,9 @@ export class UsuarioService implements OnInit {
     })
   }
 
-  pesquisaPorNome(nome: string): Usuario[] {
-    let listaTemp = this.lista.filter((usuario) => usuario.nome.includes(nome));
-    return listaTemp;
-
+  pesquisaPorNome(nome: string): Observable<Usuario[]> {
+    return 
+        this.httpClient.get(API + "nome?"+nome);
   }
 
   inclui(usuario: Usuario) {

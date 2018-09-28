@@ -12,6 +12,7 @@ import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { UsuarioListComponent } from './usuario-list/usuario-list.component';
 import { UsuarioService } from './usuario.service';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     FormsModule,
     MessageModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   declarations: [
     UsuarioFormComponent, 

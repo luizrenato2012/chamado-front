@@ -20,9 +20,14 @@ export class UsuarioListComponent implements OnInit {
 
   pesquisa() {
     console.log('pesquisando ' + this.argumento);
-    this.usuarios = ( this.argumento=='' || this.argumento==undefined) ?  this.usuarioService.listaTodosUsuarios() :
-      this.usuarioService.pesquisaPorNome(this.argumento);
-  }
+     if ( this.argumento=='' || this.argumento==undefined) {
+      this.usuarioService.listaTodosUsuarios().subscribe( result => this.usuarios = result) ;
+    } else {
+      this.usuarioService.pesquisaPorNome(this.argumento).subscribe( result => this.usuarios = result);
+    } 
+}
+
+  
 
   excluir(id :number) {
     this.confirmationService.confirm({
