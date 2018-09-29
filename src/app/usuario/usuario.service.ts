@@ -3,7 +3,7 @@ import { Usuario } from './usuario';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API="http://localhost:3000/";
+const API="http://localhost:3000/usuarios";
 
 @Injectable({
   providedIn: 'root'
@@ -24,21 +24,16 @@ export class UsuarioService implements OnInit {
 
   listaTodosUsuarios(): Observable<Usuario[]> {
     return this.httpClient
-        .get<Usuario[]>(API+"usuarios");
+        .get<Usuario[]>(API);
   }
 
 
   exclui(id: number) {
-    this.lista.forEach((usuario) => {
-      if (usuario.id == id) {
-        this.lista.pop();
-      }
-    })
+    return this.httpClient.delete(API+"/"+id);
   }
 
   pesquisaPorNome(nome: string): Observable<Usuario[]> {
-    return 
-        this.httpClient.get(API + "nome?"+nome);
+    return this.httpClient.get<Usuario[]>(API + "?nome="+nome);
   }
 
   inclui(usuario: Usuario) {

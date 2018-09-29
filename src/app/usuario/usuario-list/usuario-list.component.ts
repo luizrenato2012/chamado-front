@@ -33,7 +33,8 @@ export class UsuarioListComponent implements OnInit {
     this.confirmationService.confirm({
       message : 'Deseja realmente excluir este usuário?',
       accept : ()=> {
-          this.usuarioService.exclui(id);
+          this.usuarioService.exclui(id).subscribe();
+          this.pesquisa();
       }
     });
   }
