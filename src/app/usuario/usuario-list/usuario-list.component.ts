@@ -23,7 +23,11 @@ export class UsuarioListComponent implements OnInit {
      if ( this.argumento=='' || this.argumento==undefined) {
       this.usuarioService.listaTodosUsuarios().subscribe( result => this.usuarios = result) ;
     } else {
-      this.usuarioService.pesquisaPorNome(this.argumento).subscribe( result => this.usuarios = result);
+      this.usuarioService.pesquisaPorNome(this.argumento).subscribe( result => {
+        console.log(result);
+        this.usuarios = result;
+      }
+      );
     } 
 }
 
@@ -33,8 +37,8 @@ export class UsuarioListComponent implements OnInit {
     this.confirmationService.confirm({
       message : 'Deseja realmente excluir este usuário?',
       accept : ()=> {
-          this.usuarioService.exclui(id).subscribe();
-          this.pesquisa();
+          this.usuarioService.exclui(id).subscribe(()=>this.pesquisa());
+          ;
       }
     });
   }
