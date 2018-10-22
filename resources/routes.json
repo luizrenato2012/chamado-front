@@ -1,0 +1,6 @@
+{
+  "/api/sistemas": "/sistemas",
+  "/api/tipos": "/tipos",
+  "/api/situacoes": "/situacoes",
+  "/api/usuarios": "/usuarios"
+}
